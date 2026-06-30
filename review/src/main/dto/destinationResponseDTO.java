@@ -7,5 +7,5 @@ import java.util.UUID;
 public class DestinationResponseDTO {
     private UUID id;
     private String name;
-    // Agrega aquí campos adicionales si los necesitas, pero con "id" basta para validar.
+  
 }
