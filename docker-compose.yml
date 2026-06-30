@@ -67,4 +67,5 @@ volumes:
   mysql_login_data:
   mysql_destination_data:
   mysql_traveler_data:
+  mysql_review_data:
   

@@ -1,0 +1,13 @@
+server:
+  port: 9003
+
+spring:
+  application:
+    name: review-service
+  datasource:
+    url: jdbc:mysql://localhost:3313/review?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: examen
+    password: examen123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  flyway:
+    baseline-on-migrate: true
