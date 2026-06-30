@@ -265,3 +265,42 @@ IE 2.5.2 Explica su aporte personal al proyecto, justificando commits, tareas as
 IE 3.1.2 Explica con claridad el funcionamiento de las pruebas unitarias generadas en el proyecto, justificando decisiones técnicas y relacionándolas con el dominio del microservicio, e integra nuevas pruebas unitarias en tiempo acotado, aplicando correctamente la lógica requerida y manteniendo la consistencia del proyecto. (ARCHIVO README EN EL PROYECTO)
 
 IE 3.2.2 Explica la documentación técnica generada con Swagger/OpenAPI, recorriendo rutas, respuestas, modelos y ejemplos, y demostrando consistencia entre la documentación y el comportamiento real del código. (ARCHIVO README EN EL PROYECTO)
+
+## Descripción del proyecto
+Este proyecto consiste en el diseño, desarrollo e integración del Microservicio de Reseñas.
+El microservicio permite a los usuarios autenticados calificar y dejar comentarios sobre los distintos destinos turísticos disponibles en la plataforma.
+
+### Arquitectura y relaciones lógicas
+Para mantener la autonomía de las bases de datos, este microservicio no utiliza llaves foráneas físicas hacia otros servicios, sino relaciones lógicas mediante identificadores ID:
+* **Relación con Login Service:** Cada reseña almacena de forma segura el "userId" del autor que creó el comentario.
+* **Relación con Destination Service:** Cada reseña se asocia a un destino específico mediante el "destinationId".
+
+## Tecnologías utilizadas
+* **Java** (Spring Boot 3.x / 4.x)
+* **Spring Data JPA** (Persistencia de datos)
+* **MySQL** (Base de datos independiente en puerto `3313` / configurada)
+* **Docker & Docker Compose** (Orquestación del entorno)
+* **Eureka Client** (Descubrimiento de servicios)
+* **Spring Cloud Gateway** (Ruteo de la API)
+
+## Paso a paso del desarrollo del proyecto
+El desarrollo del proyecto se llevó a cabo de forma colaborativa a través de Git y GitHub, siguiendo este flujo estructurado de trabajo en equipo:
+
+### Paso 1: Inicialización y Repositorio Base
+* **Configuración del Repositorio:** Se subió la estructura limpia del ecosistema de microservicios global para asegurar que ambos integrantes trabajaran sobre la misma base de código.
+* **Estructura del Microservicio:** Se creó el módulo "review" configurando las dependencias iniciales en el archivo "pom.xml".
+
+### Paso 2: Estandarización e Infraestructura
+* **Documentación:** Se formalizó la autoría del examen registrando los nombres de los integrantes.
+* **Respuestas del Servidor:** Se implementó una clase genérica "ApiResponse" para asegurar que todas las respuestas de los controladores manejen el mismo formato de éxito o error.
+* **Contenerización:** Se configuró el entorno Docker inicial para agilizar el despliegue del nuevo microservicio junto a las bases de datos existentes.
+
+### Paso 3: Desarrollo de Capas (Trabajo en Paralelo)
+Para optimizar el tiempo del examen, dividimos el desarrollo en capas lógicas:
+* **Capa de Transferencia (DTOs):** Se crearon los objetos DTO para la validación y transporte seguro de los datos de entrada de las reseñas.
+* **Capa de Datos (Model & Repository):** Se diseñó la entidad "reviewModel" mapeada a JPA con los campos requeridos (nota del 1 al 5, comentario y enlaces lógicos) y su respectiva interfaz "reviewRepository".
+* **Capa de Negocio y Endpoints (Service & Controller):** Se codificaron los endpoints REST para registrar reseñas y consultar historial por destinos o usuarios.
+
+### Paso 4: Integración, Git Merge y Base de Datos
+* **Resolución de Conflictos:** Al unificar las ramas de desarrollo mediante un "git pull / merge", se gestionaron y resolvieron manualmente las líneas de código solapadas para asegurar la estabilidad de la rama principal ("main").
+* **Persistencia Final:** Con la lógica de Java en paz, se integró y consolidó la configuración de propiedades y la creación de la base de datos MySQL para el almacenamiento definitivo de los registros.
