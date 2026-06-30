@@ -1,6 +1,6 @@
---Nombres Integrantes
---Nahuel Escobar
---Angel Marquez
+### Nombres Integrantes
+* Nahuel Escobar
+* Angel Marquez
 
 ###### Enunciado del Examen ######
 
