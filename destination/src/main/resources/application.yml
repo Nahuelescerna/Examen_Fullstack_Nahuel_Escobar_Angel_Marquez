@@ -1,0 +1,18 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: destination-service
+  datasource:
+    url: jdbc:mysql://localhost:3311/destination?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: examen
+    password: examen123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  flyway:
+    baseline-on-migrate: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
