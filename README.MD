@@ -304,3 +304,12 @@ Para optimizar el tiempo del examen, dividimos el desarrollo en capas lógicas:
 ### Paso 4: Integración, Git Merge y Base de Datos
 * **Resolución de Conflictos:** Al unificar las ramas de desarrollo mediante un "git pull / merge", se gestionaron y resolvieron manualmente las líneas de código solapadas para asegurar la estabilidad de la rama principal ("main").
 * **Persistencia Final:** Con la lógica de Java en paz, se integró y consolidó la configuración de propiedades y la creación de la base de datos MySQL para el almacenamiento definitivo de los registros.
+
+### Paso 5: Levantamiento del proyecto 
+Para garantizar la correcta intercomunicación, descubrimiento y seguridad del ecosistema, la inicialización del proyecto se ejecutó siguiendo un orden estricto basado en las dependencias de la arquitectura. El proceso se dividió en las siguientes fases:
+
+* **Despliegue del Servidor de Descubrimiento (Eureka Server):** Fue el primer componente en inicializarse, ya que actúa como el núcleo de registro de la arquitectura. Es obligatorio que Eureka esté activo antes que cualquier otro servicio, para que estos puedan registrarse exitosamente al arrancar y permitir el balanceo de cargas y la resolución de nombres de red.
+
+* **Inicialización del Servicio de Autenticación (Login):** Una vez que Eureka estuvo en línea y aceptando registros, se procedió a levantar el microservicio de Login. Este paso previo a los servicios de negocio es fundamental para asegurar que la capa de identidad, generación y validación de tokens (o credenciales) esté plenamente operativa. De esta forma, se evitan errores de denegación de servicio o problemas de autorización al momento en que los demás servicios intenten validar peticiones.
+
+* **Puesta en marcha de los Microservicios de Negocio (3 Microservicios):** Por último, se inicializaron los tres microservicios restantes que contienen la lógica de negocio. Al seguir este orden, nos aseguramos de que cada uno de ellos pudiera
