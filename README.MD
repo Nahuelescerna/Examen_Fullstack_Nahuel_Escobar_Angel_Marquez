@@ -313,3 +313,6 @@ Para garantizar la correcta intercomunicación, descubrimiento y seguridad del e
 * **Inicialización del Servicio de Autenticación (Login):** Una vez que Eureka estuvo en línea y aceptando registros, se procedió a levantar el microservicio de Login. Este paso previo a los servicios de negocio es fundamental para asegurar que la capa de identidad, generación y validación de tokens (o credenciales) esté plenamente operativa. De esta forma, se evitan errores de denegación de servicio o problemas de autorización al momento en que los demás servicios intenten validar peticiones.
 
 * **Puesta en marcha de los Microservicios de Negocio (3 Microservicios):** Por último, se inicializaron los tres microservicios restantes que contienen la lógica de negocio. Al seguir este orden, nos aseguramos de que cada uno de ellos pudiera
+
+### Paso 6: Microservicios levantados
+Swagger demuestra que funciona incluyendo nuestro microservicio implementado pero no nos deja realizar las pruebas. 
