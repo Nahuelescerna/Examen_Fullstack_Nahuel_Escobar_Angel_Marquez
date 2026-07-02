@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@Tag(name = "Review Controller", description = "Endpoints para la gestión e integración de reseñas de destinos.")
+
+
 @RestController
+@Tag(name = "Review Controller", description = "Endpoints para la gestión e integración de reseñas de destinos.")
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/reviews")
 public class ReviewController {
